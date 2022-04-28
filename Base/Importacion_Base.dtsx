@@ -1,0 +1,1671 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/30/2021 2:56:46 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SEGALMEXAPP"
+  DTS:CreatorName="SEGALMEXAPP\Segalmexweb"
+  DTS:DTSID="{AE6BE878-71D7-428D-A0A4-4C14EC8A089C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.150"
+  DTS:LocaleID="2058"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{8AA48554-E2E4-4325-96E2-C544381642EA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{9E54644A-805F-449A-8673-AEA698FD1AE3}"
+      DTS:ObjectName="Administrador de conexiones con Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=S:\CHECADOR_SEGALMEX\Base\BASE_SEGALMEX_FULL.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SEGALMEXBD\VISIONDB.DSBM]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7D645EE6-ABD9-4461-AF53-57FB0D089856}"
+      DTS:ObjectName="SEGALMEXBD\VISIONDB.DSBM">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SEGALMEXBD\VISIONDB;User ID=DSBM;Initial Catalog=PRO_SERVER_ASISTENCIA;Provider=MSOLEDBSQL.1;Auto Translate=False;Application Name=SSIS-Package-{7D645EE6-ABD9-4461-AF53-57FB0D089856}SEGALMEXBD\VISIONDB.DSBM;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAjqDk5xw7AkS02W9F7KoJMAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABnQCsbyjUKxVdy44CcjaweLStAJ3+tdx78o74ocJHbyAAAAAAOgAAAAAIAACAAAABPTYJqiD90MnJmX2j22RpJT8NMCwqybwPJAG3aYgw2SyAAAACP2li25aCwesxapINWekd4Qvkhm98wIXa1crLtPgK010AAAACDmd8mk+bFy65pgG9uKTLsKsCHXTJQxVQfpF/0v+hqIv1vmjd5h086pYBIsFEtbkfuFuEP4Xj5yLvuic1KJAxq</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Flujo de datos"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{8CB4A38C-AE5E-45D9-963F-4B0BA5F732FA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Flujo de datos"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tarea Flujo de datos\Conversión de datos"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
+              description="Conversión de datos"
+              name="Conversión de datos"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  name="Entrada de conversión de datos">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[FK_IdProyecto]"
+                      cachedDataType="r8"
+                      cachedName="FK_IdProyecto"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FK_IdProyecto]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[FK_IdEstado]"
+                      cachedDataType="r8"
+                      cachedName="FK_IdEstado"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FK_IdEstado]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[FK_IdUnidadAdm]"
+                      cachedDataType="r8"
+                      cachedName="FK_IdUnidadAdm"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FK_IdUnidadAdm]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[PK_IdPerfil]"
+                      cachedDataType="r8"
+                      cachedName="PK_IdPerfil"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PK_IdPerfil]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Nombre_TipoPago]"
+                      cachedDataType="r8"
+                      cachedName="Nombre_TipoPago"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre_TipoPago]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Login]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Login"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Login]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Password]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Password"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Password]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Apallido_Paterno]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Apallido_Paterno"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Apallido_Paterno]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Apallido_Materno]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Apallido_Materno"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Apallido_Materno]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[Nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Nombre"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[FK_IdPuesto]"
+                      cachedDataType="r8"
+                      cachedName="FK_IdPuesto"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FK_IdPuesto]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[BANCO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="BANCO"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[BANCO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[CUENTA]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CUENTA"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CUENTA]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[CLABE]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CLABE"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CLABE]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[RFC]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RFC"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[RFC]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[CURP]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CURP"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CURP]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[NSS]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NSS"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NSS]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[PK_IdSexo]"
+                      cachedDataType="r8"
+                      cachedName="PK_IdSexo"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PK_IdSexo]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[FECHA_NACIMIENTO ]"
+                      cachedDataType="date"
+                      cachedName="FECHA_NACIMIENTO "
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FECHA_NACIMIENTO ]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[LUGAR_NACIMIENTO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="LUGAR_NACIMIENTO"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[LUGAR_NACIMIENTO]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  exclusionGroup="1"
+                  name="Salida de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de FK_IdProyecto]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de FK_IdProyecto]"
+                      name="Copia de FK_IdProyecto"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FK_IdProyecto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de FK_IdEstado]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de FK_IdEstado]"
+                      name="Copia de FK_IdEstado"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FK_IdEstado]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de FK_IdUnidadAdm]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de FK_IdUnidadAdm]"
+                      name="Copia de FK_IdUnidadAdm"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FK_IdUnidadAdm]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de PK_IdPerfil]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de PK_IdPerfil]"
+                      name="Copia de PK_IdPerfil"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PK_IdPerfil]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Nombre_TipoPago]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Nombre_TipoPago]"
+                      name="Copia de Nombre_TipoPago"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre_TipoPago]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Login]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Login]"
+                      name="Copia de Login"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Login]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Password]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Password]"
+                      name="Copia de Password"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Password]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Apallido_Paterno]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Apallido_Paterno]"
+                      name="Copia de Apallido_Paterno"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Apallido_Paterno]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Apallido_Materno]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Apallido_Materno]"
+                      name="Copia de Apallido_Materno"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Apallido_Materno]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Nombre]"
+                      name="Copia de Nombre"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de FK_IdPuesto]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de FK_IdPuesto]"
+                      name="Copia de FK_IdPuesto"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FK_IdPuesto]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de BANCO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="35"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de BANCO]"
+                      name="Copia de BANCO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[BANCO]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de CUENTA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de CUENTA]"
+                      name="Copia de CUENTA"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CUENTA]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de CLABE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="35"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de CLABE]"
+                      name="Copia de CLABE"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CLABE]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de RFC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de RFC]"
+                      name="Copia de RFC"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[RFC]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de CURP]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de CURP]"
+                      name="Copia de CURP"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CURP]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de NSS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de NSS]"
+                      name="Copia de NSS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NSS]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de PK_IdSexo]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de PK_IdSexo]"
+                      name="Copia de PK_IdSexo"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PK_IdSexo]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de FECHA_NACIMIENTO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="35"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de FECHA_NACIMIENTO]"
+                      name="Copia de FECHA_NACIMIENTO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FECHA_NACIMIENTO ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de LUGAR_NACIMIENTO]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de LUGAR_NACIMIENTO]"
+                      name="Copia de LUGAR_NACIMIENTO"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[LUGAR_NACIMIENTO]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de conversión de datos"
+                  synchronousInputId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Destino de OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Destino de OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[PSA.UsuarioAsistencia]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Destino de OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SEGALMEXBD\VISIONDB.DSBM]"
+                  connectionManagerRefId="Package.ConnectionManagers[SEGALMEXBD\VISIONDB.DSBM]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de PK_IdPerfil]"
+                      cachedDataType="numeric"
+                      cachedName="Copia de PK_IdPerfil"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FK_IdPerfil]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de PK_IdPerfil]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de Nombre_TipoPago]"
+                      cachedDataType="numeric"
+                      cachedName="Copia de Nombre_TipoPago"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FK_IdTipoPago]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Nombre_TipoPago]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de PK_IdSexo]"
+                      cachedDataType="numeric"
+                      cachedName="Copia de PK_IdSexo"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FK_IdSexo]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de PK_IdSexo]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de FK_IdProyecto]"
+                      cachedDataType="numeric"
+                      cachedName="Copia de FK_IdProyecto"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FK_IdProyecto]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de FK_IdProyecto]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de FK_IdEstado]"
+                      cachedDataType="numeric"
+                      cachedName="Copia de FK_IdEstado"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FK_IdEstado]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de FK_IdEstado]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de FK_IdUnidadAdm]"
+                      cachedDataType="numeric"
+                      cachedName="Copia de FK_IdUnidadAdm"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FK_IdUnidadAdm]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de FK_IdUnidadAdm]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de FK_IdPuesto]"
+                      cachedDataType="numeric"
+                      cachedName="Copia de FK_IdPuesto"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FK_IdPuesto]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de FK_IdPuesto]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de Apallido_Paterno]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copia de Apallido_Paterno"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Apallido_Paterno]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Apallido_Paterno]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de Apallido_Materno]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="Copia de Apallido_Materno"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Apallido_Materno]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Apallido_Materno]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de Nombre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copia de Nombre"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Nombre]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de Login]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copia de Login"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Login]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Login]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de Password]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Copia de Password"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Password]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Password]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de BANCO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="35"
+                      cachedName="Copia de BANCO"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Banco]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de BANCO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de CLABE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="35"
+                      cachedName="Copia de CLABE"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Clabe]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de CLABE]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de CUENTA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copia de CUENTA"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cuenta]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de CUENTA]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de RFC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Copia de RFC"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[RFC]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de RFC]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de CURP]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Copia de CURP"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CURP]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de CURP]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de NSS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Copia de NSS"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NSS]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de NSS]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de FECHA_NACIMIENTO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="35"
+                      cachedName="Copia de FECHA_NACIMIENTO"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha_Nacimiento]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de FECHA_NACIMIENTO]" />
+                    <inputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Copia de LUGAR_NACIMIENTO]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Copia de LUGAR_NACIMIENTO"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lugar_Nacimiento]"
+                      lineageId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de LUGAR_NACIMIENTO]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[PK_IdUsuario]"
+                      dataType="i4"
+                      name="PK_IdUsuario" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FK_IdProyecto]"
+                      dataType="i4"
+                      name="FK_IdProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FK_IdEstado]"
+                      dataType="i4"
+                      name="FK_IdEstado" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FK_IdUnidadAdm]"
+                      dataType="i4"
+                      name="FK_IdUnidadAdm" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FK_IdPerfil]"
+                      dataType="i4"
+                      name="FK_IdPerfil" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FK_IdTipoPago]"
+                      dataType="i4"
+                      name="FK_IdTipoPago" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FK_IdSupervisor]"
+                      dataType="i4"
+                      name="FK_IdSupervisor" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FK_IdHorario]"
+                      dataType="i4"
+                      name="FK_IdHorario" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FK_IdSexo]"
+                      dataType="i4"
+                      name="FK_IdSexo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[FK_IdPuesto]"
+                      dataType="i4"
+                      name="FK_IdPuesto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Apallido_Paterno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Apallido_Paterno" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Apallido_Materno]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Apallido_Materno" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Mail]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Mail" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Login]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Login" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Password]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="Password" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estatus]"
+                      dataType="bool"
+                      name="Estatus" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cve_Usuario]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Cve_Usuario" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Img_Perfil]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Img_Perfil" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha_Actualiza]"
+                      dataType="dbTimeStamp"
+                      name="Fecha_Actualiza" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Banco]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      name="Banco" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Clabe]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      name="Clabe" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cuenta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Cuenta" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[RFC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="RFC" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[CURP]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="CURP" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NSS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="NSS" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha_Nacimiento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      name="Fecha_Nacimiento" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lugar_Nacimiento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Lugar_Nacimiento" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tarea Flujo de datos\Origen de Excel"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Origen de Excel;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de Excel"
+              name="Origen de Excel"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">Hoja1$</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="La asignación de parámetros del comando SQL a variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tarea Flujo de datos\Origen de Excel.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel]"
+                  name="Salida de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FK_IdProyecto]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FK_IdProyecto]"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FK_IdProyecto]"
+                      name="FK_IdProyecto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FK_IdEstado]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FK_IdEstado]"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FK_IdEstado]"
+                      name="FK_IdEstado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FK_IdUnidadAdm]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FK_IdUnidadAdm]"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FK_IdUnidadAdm]"
+                      name="FK_IdUnidadAdm"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PK_IdPerfil]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[PK_IdPerfil]"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PK_IdPerfil]"
+                      name="PK_IdPerfil"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre_TipoPago]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Nombre_TipoPago]"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre_TipoPago]"
+                      name="Nombre_TipoPago"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Login]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Login]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Login]"
+                      name="Login"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Password]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Password]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Password]"
+                      name="Password"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Apallido_Paterno]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Apallido_Paterno]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Apallido_Paterno]"
+                      name="Apallido_Paterno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Apallido_Materno]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Apallido_Materno]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Apallido_Materno]"
+                      name="Apallido_Materno"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Nombre]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[Nombre]"
+                      name="Nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FK_IdPuesto]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FK_IdPuesto]"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FK_IdPuesto]"
+                      name="FK_IdPuesto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[BANCO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[BANCO]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[BANCO]"
+                      name="BANCO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CUENTA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CUENTA]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CUENTA]"
+                      name="CUENTA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CLABE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CLABE]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CLABE]"
+                      name="CLABE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[RFC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[RFC]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[RFC]"
+                      name="RFC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CURP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CURP]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[CURP]"
+                      name="CURP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NSS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NSS]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[NSS]"
+                      name="NSS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PK_IdSexo]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[PK_IdSexo]"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[PK_IdSexo]"
+                      name="PK_IdSexo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FECHA_NACIMIENTO ]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FECHA_NACIMIENTO ]"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[FECHA_NACIMIENTO ]"
+                      name="FECHA_NACIMIENTO "
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[LUGAR_NACIMIENTO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[LUGAR_NACIMIENTO]"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].Columns[LUGAR_NACIMIENTO]"
+                      name="LUGAR_NACIMIENTO"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FK_IdProyecto]"
+                      dataType="r8"
+                      name="FK_IdProyecto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FK_IdEstado]"
+                      dataType="r8"
+                      name="FK_IdEstado" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FK_IdUnidadAdm]"
+                      dataType="r8"
+                      name="FK_IdUnidadAdm" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[PK_IdPerfil]"
+                      dataType="r8"
+                      name="PK_IdPerfil" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Nombre_TipoPago]"
+                      dataType="r8"
+                      name="Nombre_TipoPago" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Login]"
+                      dataType="wstr"
+                      length="255"
+                      name="Login" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Password]"
+                      dataType="wstr"
+                      length="255"
+                      name="Password" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Apallido_Paterno]"
+                      dataType="wstr"
+                      length="255"
+                      name="Apallido_Paterno" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Apallido_Materno]"
+                      dataType="wstr"
+                      length="255"
+                      name="Apallido_Materno" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[Nombre]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FK_IdPuesto]"
+                      dataType="r8"
+                      name="FK_IdPuesto" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[BANCO]"
+                      dataType="wstr"
+                      length="255"
+                      name="BANCO" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CUENTA]"
+                      dataType="wstr"
+                      length="255"
+                      name="CUENTA" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CLABE]"
+                      dataType="wstr"
+                      length="255"
+                      name="CLABE" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[RFC]"
+                      dataType="wstr"
+                      length="255"
+                      name="RFC" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[CURP]"
+                      dataType="wstr"
+                      length="255"
+                      name="CURP" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[NSS]"
+                      dataType="wstr"
+                      length="255"
+                      name="NSS" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[PK_IdSexo]"
+                      dataType="r8"
+                      name="PK_IdSexo" />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[FECHA_NACIMIENTO ]"
+                      dataType="date"
+                      name="FECHA_NACIMIENTO " />
+                    <externalMetadataColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel].ExternalColumns[LUGAR_NACIMIENTO]"
+                      dataType="wstr"
+                      length="255"
+                      name="LUGAR_NACIMIENTO" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de Excel">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FK_IdProyecto]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FK_IdProyecto]"
+                      name="FK_IdProyecto" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FK_IdEstado]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FK_IdEstado]"
+                      name="FK_IdEstado" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FK_IdUnidadAdm]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FK_IdUnidadAdm]"
+                      name="FK_IdUnidadAdm" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[PK_IdPerfil]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[PK_IdPerfil]"
+                      name="PK_IdPerfil" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Nombre_TipoPago]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Nombre_TipoPago]"
+                      name="Nombre_TipoPago" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Login]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Login]"
+                      name="Login" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Password]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Password]"
+                      name="Password" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Apallido_Paterno]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Apallido_Paterno]"
+                      name="Apallido_Paterno" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Apallido_Materno]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Apallido_Materno]"
+                      name="Apallido_Materno" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Nombre]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[Nombre]"
+                      name="Nombre" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FK_IdPuesto]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FK_IdPuesto]"
+                      name="FK_IdPuesto" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[BANCO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[BANCO]"
+                      name="BANCO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CUENTA]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CUENTA]"
+                      name="CUENTA" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CLABE]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CLABE]"
+                      name="CLABE" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[RFC]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[RFC]"
+                      name="RFC" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CURP]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[CURP]"
+                      name="CURP" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NSS]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[NSS]"
+                      name="NSS" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[PK_IdSexo]"
+                      dataType="r8"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[PK_IdSexo]"
+                      name="PK_IdSexo" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FECHA_NACIMIENTO ]"
+                      dataType="date"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[FECHA_NACIMIENTO ]"
+                      name="FECHA_NACIMIENTO " />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[LUGAR_NACIMIENTO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[LUGAR_NACIMIENTO]"
+                      name="LUGAR_NACIMIENTO" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de error de origen de Excel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
+              endId="Package\Tarea Flujo de datos\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de conversión de datos"
+              startId="Package\Tarea Flujo de datos\Conversión de datos.Outputs[Salida de conversión de datos]" />
+            <path
+              refId="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
+              endId="Package\Tarea Flujo de datos\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de Excel"
+              startId="Package\Tarea Flujo de datos\Origen de Excel.Outputs[Salida de origen de Excel]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Tarea Flujo de datos"
+          TopLeft="120,103" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tarea Flujo de datos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Tarea Flujo de datos\Origen de Excel"
+          TopLeft="127,71" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Tarea Flujo de datos\Destino de OLE DB"
+          TopLeft="480,290" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Tarea Flujo de datos\Conversión de datos"
+          TopLeft="478,90" />
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de origen de Excel]"
+          TopLeft="280,92">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="198,19"
+              Start="0,0"
+              End="190.5,19">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="95,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="95,0"
+                    Point2="99,0"
+                    Point3="99,4" />
+                  <mssgle:LineSegment
+                    End="99,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="99,15"
+                    Point2="99,19"
+                    Point3="103,19" />
+                  <mssgle:LineSegment
+                    End="190.5,19" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tarea Flujo de datos.Paths[Salida de conversión de datos]"
+          TopLeft="564.75,132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,158"
+              Start="0,0"
+              End="0,150.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,150.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Origen de Excel">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tarea Flujo de datos\Destino de OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

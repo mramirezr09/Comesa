@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "\\APP",
+    "\\APP\\Ajax",
+    "\\APP\\Controller",
+    "\\APP\\Model",
+    "\\APP\\View",
+    "\\Script",
+    "\\Script\\js"
+  ],
+  "SelectedNode": "\\APP\\Controller\\Controller-CrearCredencial.php",
+  "PreviewInSolutionExplorer": false
+}
